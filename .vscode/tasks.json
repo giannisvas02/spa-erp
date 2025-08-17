@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ts_lint",
+      "isBackground": true,
+      "command": "npx",
+      "args": ["eslint", "."],
+      "options": {
+        "cwd": "${workspaceFolder}/src/SpaERP.Web"
+      },
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "label": "tsc_watch",
+      "isBackground": true,
+      "command": "tsc",
+      "args": ["--watch"],
+      "options": {
+        "cwd": "${workspaceFolder}/src/SpaERP.Web"
+      },
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "label": "build",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/src/SpaERP.sln", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "silent"
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "restore solution",
+      "command": "dotnet",
+      "args": ["restore", "${workspaceFolder}/src/SpaERP.sln"],
+      "presentation": {
+        "reveal": "silent"
+      }
+    },
+    {
+      "label": "publish_web_api",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "publish",
+        "${workspaceFolder}/src/SpaERP.WebApp/SpaERP.WebApp.csproj",
+        "--configuration",
+        "Release",
+        "--framework",
+        "net9.0",
+        "-o",
+        "artifacts/src/SpaERP.WebApp.net9.0",
+        "--self-contained",
+        "false",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "watch",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["watch", "run", "--project", "${workspaceFolder}/SpaERP.WebApp/SpaERP.WebApp.csproj"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "spell_check",
+      "command": "cspell",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "args": ["\"**/*.cs\"", "\"**/*.ts\"", "--no-progress"],
+      "group": "none",
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
