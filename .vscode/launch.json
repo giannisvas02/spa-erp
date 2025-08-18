@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "web_api",
+      "name": "web_app",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
@@ -19,9 +19,21 @@
       }
     },
     {
-      "name": ".NET Core Attach",
+      "name": "native_app",
       "type": "coreclr",
-      "request": "attach"
-    }
+      "request": "launch",
+      "preLaunchTask": "build_native",
+      "program": "${workspaceFolder}/src/SpaERP.NativeApp/bin/Debug/net9.0-windows10.0.19041.0/win10-x64/SpaERP.NativeApp.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/SpaERP.NativeApp",
+      "stopAtEntry": false,
+      "console": "integratedTerminal",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "logging": {
+        "moduleLoad": false
+      }
+    },
   ]
 }

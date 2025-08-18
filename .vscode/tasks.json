@@ -38,6 +38,20 @@
       "problemMatcher": "$msCompile"
     },
     {
+      "label": "build_native",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/src/SpaERP.NativeApp"],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "silent"
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
       "label": "restore solution",
       "command": "dotnet",
       "args": ["restore", "${workspaceFolder}/src/SpaERP.sln"],

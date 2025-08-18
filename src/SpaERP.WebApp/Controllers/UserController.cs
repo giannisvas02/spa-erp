@@ -4,6 +4,7 @@ using SpaERP.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace SpaERP.WebApp.Controllers
 {
@@ -21,7 +22,7 @@ namespace SpaERP.WebApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            var users = await _context.Users.ToListAsync();
+            var users = await _context.Users.Where(x => x.FirstName == "John").ToListAsync();
             return Ok(users);
         }
 
