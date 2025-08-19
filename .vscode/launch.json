@@ -5,12 +5,12 @@
       "name": "web_app",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "build",
+      // "preLaunchTask": "build",
       "program": "${workspaceFolder}/src/SpaERP.WebApp/bin/Debug/net9.0/SpaERP.WebApp.dll",
       "args": [],
       "cwd": "${workspaceFolder}/src/SpaERP.WebApp",
       "stopAtEntry": false,
-      "console": "integratedTerminal",
+      "console": "externalTerminal",
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -22,7 +22,7 @@
       "name": "native_app",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "build_native",
+      // "preLaunchTask": "build_native",
       "program": "${workspaceFolder}/src/SpaERP.NativeApp/bin/Debug/net9.0-windows10.0.19041.0/win10-x64/SpaERP.NativeApp.exe",
       "args": [],
       "cwd": "${workspaceFolder}/src/SpaERP.NativeApp",
@@ -34,6 +34,14 @@
       "logging": {
         "moduleLoad": false
       }
-    },
+    }
+  ],
+  "compounds": [
+    {
+      "name": "native_with_web",
+      "configurations": ["web_app", "native_app"],
+      "preLaunchTask": "build",
+      "stopAll": true
+    }
   ]
 }

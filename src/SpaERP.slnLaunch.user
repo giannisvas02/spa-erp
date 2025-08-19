@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Start App",
+    "Projects": [
+      {
+        "Path": "SpaERP.WebApp\\SpaERP.WebApp.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "SpaERP.NativeApp\\SpaERP.NativeApp.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
