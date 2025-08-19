@@ -13,7 +13,7 @@
 
     <ShellContent
         Title="Time-Table"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate local:TimeTablePage}"
+        Route="TimeTablePage" />
 
 </Shell>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SpaERP.NativeApp"
+             x:Class="SpaERP.NativeApp.TimeTablePage">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <!-- Header row fixed height -->
+            <RowDefinition Height="*"/>
+            <!-- Scrollable content -->
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" x:Name="HeaderGrid" ColumnSpacing="1" BackgroundColor="{StaticResource Primary}">
+            <!-- 7 day columns + empty corner column -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <!-- for time labels -->
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <ScrollView Grid.Row="1" Orientation="Vertical">
+            <Grid x:Name="MainGrid" RowSpacing="1" ColumnSpacing="1" BackgroundColor="{StaticResource Secondary}">
+            </Grid>
+        </ScrollView>
+    </Grid>
+
+    
+
+</ContentPage>

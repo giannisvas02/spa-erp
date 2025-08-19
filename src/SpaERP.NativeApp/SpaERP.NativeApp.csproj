@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<!-- net9.0-android; -->
@@ -51,7 +51,6 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 		
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -63,6 +62,9 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.5" />
+		<PackageReference Include="SkiaSharp" Version="3.119.0" />
+		<PackageReference Include="Svg.Skia" Version="2.*" />
+		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="3.119.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -78,6 +80,19 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\SpaERP.Models\SpaERP.Models.csproj" />
+	  <ProjectReference Include="..\SpaERP\SpaERP.csproj"/>
 	</ItemGroup>
+
+	<!--<ItemGroup>
+	  <Compile Update="TimeTablePage.xaml.cs">
+	    <DependentUpon>TimeTablePage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="TimeTablePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>-->
 
 </Project>
