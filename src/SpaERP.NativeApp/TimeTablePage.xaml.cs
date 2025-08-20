@@ -1,14 +1,15 @@
 ﻿
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Controls;
 using SpaERP.Models;
 using System.Net.Http.Json;
-using Microsoft.Maui.Controls;
 
 namespace SpaERP.NativeApp;
 
 public partial class TimeTablePage : ContentPage
 {
 	HttpClient Client;
+    ResourceDictionary AppResources;
 
     private int DaysPerWeek = 7;
     private int HoursPerDay = 12;
@@ -18,58 +19,73 @@ public partial class TimeTablePage : ContentPage
 		InitializeComponent();
 		Client = client; // Use the injected HttpClient instance
 
-        BuildGrid();
+        if (Application.Current is not null)
+            AppResources = Application.Current.Resources;
 
-        var resources = Application.Current.Resources;
+        BuildGrid();
     }
 
     private void BuildGrid()
     {
-        MainGrid.RowDefinitions.Clear();
-        MainGrid.ColumnDefinitions.Clear();
-        MainGrid.Children.Clear();
 
-        // Add columns for 7 days
-        for (int c = 0; c <= DaysPerWeek; c++)
-        {
-            GridLength width = c == 0 ? new GridLength(80) : GridLength.Star;
-            MainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = width });
-        }
-
-        // Add rows for hours + header row
-        for (int r = 0; r <= HoursPerDay; r++)
-        {
-            MainGrid.RowDefinitions.Add(new RowDefinition { Height = 40 });
-        }
-
-        // Add day headers
         string[] days = Enum.GetNames(typeof(DayOfWeek));
-        for (int c = 1; c <= DaysPerWeek; c++)
-        {
-            var lbl = new Label
-            {
-                Text = days[c-1],
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
-            };
-            HeaderGrid.Children.Add(lbl);
-            Grid.SetColumn(lbl, c);
-            Grid.SetRow(lbl, 0);
 
-        }
-
-        // Add hour headers
-        for (int r = 0; r <= HoursPerDay; r++)
+        for (int row = 0; row <= HoursPerDay; row++)
         {
-            var lbl = new Label
+            for (int col = 1; col <= DaysPerWeek; col++)
             {
-                Text = $"{r + 8}:00", // 8 AM start
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
-            };
-            MainGrid.Children.Add(lbl);
-            Grid.SetRow(lbl, r);
-            Grid.SetColumn(lbl, 0); 
+                var dayName = days[col-1];
+                var today = DateTime.Today.DayOfWeek;
+                var secondaryColor = AppResources["Secondary"] as Color ?? Colors.LightGray;
+                var tertiaryColor = AppResources["Tertiary"] as Color ?? Colors.LightGray;
+
+                var cell = new Border
+                {
+                    BackgroundColor = Colors.Transparent,
+                    StrokeThickness = 1,
+                    HorizontalOptions = LayoutOptions.Fill,
+                    VerticalOptions = LayoutOptions.Fill
+                };
+
+                if (dayName == today.ToString())
+                {
+                    cell.BackgroundColor = secondaryColor; // Highlight today's column
+                }
+
+                // Handle hover effect
+                var pointerGesture = new PointerGestureRecognizer();
+                pointerGesture.PointerEntered += (s, e) =>
+                {
+                    cell.BackgroundColor = tertiaryColor;
+                };
+                pointerGesture.PointerExited += (s, e) =>
+                {
+                    cell.BackgroundColor = dayName == today.ToString() ? secondaryColor : Colors.Transparent;
+                };
+
+                cell.GestureRecognizers.Add(pointerGesture);
+
+
+                if (row == 0)
+                {
+                    var lbl = new Label
+                    {
+                        Text = dayName,
+                        FontSize = 14,
+                        HorizontalOptions = LayoutOptions.Center,
+                        VerticalOptions = LayoutOptions.End,
+                        FontAttributes = FontAttributes.Bold,
+                        Padding = new Thickness(0, 5)
+                    };
+
+                    cell.Content = lbl;
+                    cell.GestureRecognizers.Remove(pointerGesture);
+                }
+
+                MainGrid.Children.Add(cell);
+                Grid.SetColumn(cell, col);
+                Grid.SetRow(cell, row);
+            }
         }
 
         // Add events

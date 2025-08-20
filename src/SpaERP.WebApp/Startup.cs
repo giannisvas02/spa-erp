@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using Microsoft.Extensions.Logging;
+using System.Runtime.CompilerServices;
+using SpaERP.Services;
 
 namespace SpaERP.WebApp
 {
@@ -60,6 +62,11 @@ namespace SpaERP.WebApp
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void ConfigureWebServices(IServiceCollection services)
+        {
+            services.AddTransient<IUsersService, UsersService>();
         }
     }
 }

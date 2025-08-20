@@ -16,21 +16,30 @@
                 SemanticProperties.Description="app logo" />
 
             <Label
-                Text="Welcome to &#10;Athena's Beauty Spa"
+                Text="Welcome to"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="Welcome to" />
+
+            <Label
+                Text="Athena's Beauty Spa"
+                FontFamily="PinyonScript-Regular"
+                FontSize="66"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1"
                 SemanticProperties.Description="Athena's Beauty Spa" />
 
             <HorizontalStackLayout
-                Padding="0,150"
+                Padding="150,0"
                 Spacing="10">
                 <Button
                     x:Name="GoToTimeTable"
-                    Text="Time-Table" 
+                    Text="Time-Table"
+                    FontSize="20"
                     SemanticProperties.Hint="Go to Time-Table"
                     Clicked="OnGoToTimeTableClicked" 
                     HeightRequest="120"
-                    WidthRequest="120"/>
+                    WidthRequest="150"/>
             </HorizontalStackLayout>
             <!--<Button
                 x:Name="GetUsersBtn"

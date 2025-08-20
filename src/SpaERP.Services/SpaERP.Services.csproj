@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net9.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpaERP.Models\SpaERP.Models.csproj" />
+    <ProjectReference Include="..\SpaERP.Data\SpaERP.Data.csproj" />
+  </ItemGroup>
+</Project>

@@ -4,34 +4,70 @@
              xmlns:local="clr-namespace:SpaERP.NativeApp"
              x:Class="SpaERP.NativeApp.TimeTablePage">
 
-    <Grid Padding="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <!-- Header row fixed height -->
-            <RowDefinition Height="*"/>
-            <!-- Scrollable content -->
-        </Grid.RowDefinitions>
+    <ScrollView Padding="10" Orientation="Vertical">
+        <Grid x:Name="MainGrid" BackgroundColor="{StaticResource Primary}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" x:Name="HeaderGrid" ColumnSpacing="1" BackgroundColor="{StaticResource Primary}">
-            <!-- 7 day columns + empty corner column -->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80" />
-                <!-- for time labels -->
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="1" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">09:00</Label>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">10:00</Label>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">11:00</Label>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">12:00</Label>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">13:00</Label>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">14:00</Label>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">15:00</Label>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">16:00</Label>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">17:00</Label>
+            </Border>
+            <Border Grid.Row="10" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">18:00</Label>
+            </Border>
+            <Border Grid.Row="11" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">19:00</Label>
+            </Border>
+            <Border Grid.Row="12" Grid.Column="0" StrokeThickness="1" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Padding="5,0">20:00</Label>
+            </Border>
         </Grid>
-        <ScrollView Grid.Row="1" Orientation="Vertical">
-            <Grid x:Name="MainGrid" RowSpacing="1" ColumnSpacing="1" BackgroundColor="{StaticResource Secondary}">
-            </Grid>
-        </ScrollView>
-    </Grid>
-
-    
-
+    </ScrollView>
 </ContentPage>

@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using SpaERP.Data;
 using SpaERP.Models;
+using SpaERP.Services;
+using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SpaERP.WebApp.Controllers
 {
@@ -12,18 +16,20 @@ namespace SpaERP.WebApp.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly DataDbContext _context;
+        private readonly IUsersService DomainService;
+        private readonly ILogger<UsersController> Logger;
 
-        public UsersController(DataDbContext context)
+        protected UsersController(IUsersService domainService, ILogger<UsersController> logger = null) : base()
         {
-            _context = context;
+            this.DomainService = domainService ?? throw new ArgumentNullException(nameof(domainService));
+            this.Logger = logger;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers(CancellationToken cancellationToken)
         {
-            var users = await _context.Users.Where(x => x.FirstName == "John").ToListAsync();
-            return Ok(users);
+            var result = await this.DomainService.GetUsersAsync(cancellationToken).ConfigureAwait(false);
+            return Ok(result);
         }
 
         // Add more actions (POST, PUT, DELETE) as needed

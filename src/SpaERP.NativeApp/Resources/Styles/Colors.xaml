@@ -4,41 +4,41 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <!-- Warm Light Color Scheme -->
+    <!-- Warm Pink Color Scheme -->
 
-    <Color x:Key="Primary">#DEE791</Color>
-    <!-- Soft Warm Yellow-Green -->
-    <Color x:Key="PrimaryDark">#C2B65E</Color>
-    <!-- Muted Olive for contrast -->
-    <Color x:Key="PrimaryDarkText">#3A2C28</Color>
-    <!-- Warm Dark Brown -->
-    <Color x:Key="Secondary">#FFD6BA</Color>
-    <!-- Soft Peach -->
-    <Color x:Key="SecondaryDarkText">#A6522C</Color>
-    <!-- Warm Terracotta -->
-    <Color x:Key="Tertiary">#FFF9BD</Color>
-    <!-- Gentle Creamy Amber -->
+    <Color x:Key="Primary">#F5AFC8</Color>
+    <!-- Soft Rose Pink -->
+    <Color x:Key="PrimaryDark">#D484A8</Color>
+    <!-- Dusty Mauve Pink for contrast -->
+    <Color x:Key="PrimaryDarkText">#4A2C38</Color>
+    <!-- Deep Plum Brown -->
+    <Color x:Key="Secondary">#FFD1DC</Color>
+    <!-- Pastel Pink -->
+    <Color x:Key="SecondaryDarkText">#B2556B</Color>
+    <!-- Warm Raspberry -->
+    <Color x:Key="Tertiary">#FFF0F5</Color>
+    <!-- Gentle Lavender Blush -->
 
-    <Color x:Key="White">#FFFDF9</Color>
-    <!-- Warm White -->
-    <Color x:Key="Black">#2B1B12</Color>
-    <!-- Deep Brown instead of pure black -->
-    <Color x:Key="Magenta">#E96A5B</Color>
-    <!-- Softer Coral Pink (less harsh than hot magenta) -->
-    <Color x:Key="MidnightBlue">#8B5E3C</Color>
-    <!-- Warm Earth Brown (instead of cold blue) -->
-    <Color x:Key="OffBlack">#3A2A20</Color>
-    <!-- Soft Brownish Black -->
+    <Color x:Key="White">#FFF9FB</Color>
+    <!-- Warm Off-White with a pink tint -->
+    <Color x:Key="Black">#2A1820</Color>
+    <!-- Deep Plum Brown -->
+    <Color x:Key="Magenta">#E67399</Color>
+    <!-- Vibrant Rose Magenta -->
+    <Color x:Key="MidnightBlue">#6B3A4B</Color>
+    <!-- Dark Wine Purple -->
+    <Color x:Key="OffBlack">#3A242C</Color>
+    <!-- Soft Plum-Black -->
 
-    <!-- Warm Neutral Grays (beige/taupe tones) -->
-    <Color x:Key="Gray100">#F8EDE7</Color>
-    <Color x:Key="Gray200">#F0E0D7</Color>
-    <Color x:Key="Gray300">#E3CFC4</Color>
-    <Color x:Key="Gray400">#D5B8A9</Color>
-    <Color x:Key="Gray500">#C29D8D</Color>
-    <Color x:Key="Gray600">#A37C6B</Color>
-    <Color x:Key="Gray900">#5C4033</Color>
-    <Color x:Key="Gray950">#3D2921</Color>
+    <!-- Warm Neutral Pinks / Rose-Taupe Grays -->
+    <Color x:Key="Gray100">#FDEFF3</Color>
+    <Color x:Key="Gray200">#F6DEE6</Color>
+    <Color x:Key="Gray300">#ECC9D4</Color>
+    <Color x:Key="Gray400">#D9A8B8</Color>
+    <Color x:Key="Gray500">#C1879A</Color>
+    <Color x:Key="Gray600">#9C6278</Color>
+    <Color x:Key="Gray900">#5A3645</Color>
+    <Color x:Key="Gray950">#3D2430</Color>
 
     <!-- Brushes -->
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
